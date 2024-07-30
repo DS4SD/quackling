@@ -1,0 +1,12 @@
+.venv
+venv
+.mypy_cache
+__pycache__
+*.env
+!example.env
+.DS_Store
+.local
+site
+.ipynb_checkpoints
+dist
+.vscode
