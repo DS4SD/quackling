@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quackling"
-version = "0.1.0"
+version = "0.0.1"
 description = "Quackling enables document-native generative AI applications"
 license = "MIT"
 authors = [
