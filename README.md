@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/DS4SD/quackling">
-    <img loading="lazy" alt="Quackling" src="./resources/logo.jpeg" width="150" />
+    <img loading="lazy" alt="Quackling" src="https://raw.githubusercontent.com/DS4SD/quackling/main/resources/logo.jpeg" width="150" />
   </a>
 </p>
 
@@ -24,8 +24,8 @@ Quackling enables document-native generative AI applications, such as RAG, based
 - ⚙️ Integrates with standard LLM application frameworks, such as LlamaIndex, for building powerful applications like RAG.
 
 <p align="center">
-  <a href="./resources/doc_native_rag.png">
-    <img loading="lazy" alt="Doc-native RAG" src="./resources/doc_native_rag.png" width="350" />
+  <a href="https://raw.githubusercontent.com/DS4SD/quackling/main/resources/doc_native_rag.png">
+    <img loading="lazy" alt="Doc-native RAG" src="https://raw.githubusercontent.com/DS4SD/quackling/main/resources/doc_native_rag.png" width="350" />
   </a>
 </p>
 
@@ -82,7 +82,7 @@ response = query_engine.query(QUERY)
 
 ### Chunking
 
-You can also use Quackling with any pipeline, i.e. independently of frameworks like LlamaIndex.
+You can also use Quackling as a standalone with any pipeline.
 For instance, to split the document to chunks based on document structure and returning pointers
 to Docling document's nodes:
 
@@ -90,14 +90,14 @@ to Docling document's nodes:
 from docling.document_converter import DocumentConverter
 from quackling.core.chunkers.hierarchical_chunker import HierarchicalChunker
 
-doc = DocumentConverter().convert_single("https://arxiv.org/pdf/2206.01062")
+doc = DocumentConverter().convert_single("https://arxiv.org/pdf/2408.09869").output
 chunks = list(HierarchicalChunker().chunk(doc))
 # > [
 # >     ChunkWithMetadata(
-# >         path='$.main-text[0]',
-# >         text='DocLayNet: A Large Human-Annotated Dataset for Document-Layout Analysis',
+# >         path='$.main-text[4]',
+# >         text='Docling Technical Report\n[...]',
 # >         page=1,
-# >         bbox=[107.59, 672.38, 505.18, 709.08]
+# >         bbox=[117.56, 439.85, 494.07, 482.42]
 # >     ),
 # >     [...]
 # > ]

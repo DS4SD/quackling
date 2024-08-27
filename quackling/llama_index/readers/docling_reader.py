@@ -46,6 +46,6 @@ class DoclingReader(BasePydanticReader):
 
         converter = DocumentConverter()
         for source in file_paths:
-            dl_doc = converter.convert_single(source)
+            dl_doc = converter.convert_single(source).output
             li_doc = self._create_li_doc_from_dl_doc(dl_doc=dl_doc)
             yield li_doc
