@@ -25,4 +25,3 @@ jobs:
   #     - uses: ./.github/actions/setup-poetry
   #     - name: Build docs
   #       run: poetry run mkdocs build --verbose --clean
-  
