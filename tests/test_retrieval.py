@@ -43,7 +43,7 @@ def test_retrieval():
             vector_store_query_mode=VectorStoreQueryMode.DEFAULT,
         )
         retr_res = retriever.retrieve(QUERY)
-        act_data = dict(root=[n.dict() for n in retr_res])
+        act_data = dict(root=[n.text for n in retr_res])
         with open("tests/data/2_out_retrieval_results.json") as f:
             exp_data = json.load(fp=f)
         assert exp_data == act_data

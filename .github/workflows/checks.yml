@@ -12,5 +12,5 @@ jobs:
       - uses: ./.github/actions/setup-poetry
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Run styling check
+      - name: Run checks
         run: poetry run pre-commit run --all-files
