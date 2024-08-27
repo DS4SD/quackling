@@ -30,12 +30,12 @@ class HierarchicalNodeParser(NodeParser):
     include_metadata: bool = Field(
         default=False, description="Whether or not to consider metadata when splitting."
     )
+    id_gen_seed: int | None = None
 
     def _parse_nodes(
         self,
         nodes: Sequence[BaseNode],
         show_progress: bool = False,
-        id_gen_seed: int | None = None,
         **kwargs: Any,
     ) -> list[BaseNode]:
         # based on llama_index.core.node_parser.interface.TextSplitter
@@ -47,7 +47,11 @@ class HierarchicalNodeParser(NodeParser):
         excl_meta_embed = NodeMetadata.ExcludedKeys.EMBED
         excl_meta_llm = NodeMetadata.ExcludedKeys.LLM
 
-        seed = id_gen_seed if id_gen_seed is not None else datetime.now().timestamp()
+        seed = (
+            self.id_gen_seed
+            if self.id_gen_seed is not None
+            else datetime.now().timestamp()
+        )
         rd = Random()
         rd.seed(seed)
 
