@@ -59,7 +59,7 @@ class HierarchicalNodeParser(NodeParser):
         rd.seed(seed)
 
         for input_node in nodes_with_progress:
-            li_doc = LIDocument.parse_obj(input_node)
+            li_doc = LIDocument.model_validate(input_node)
             dl_doc: DLDocument = DLDocument.model_validate_json(li_doc.get_content())
             chunk_iter = chunker.chunk(dl_doc=dl_doc)
             for chunk in chunk_iter:
