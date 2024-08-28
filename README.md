@@ -105,9 +105,9 @@ chunks = list(HierarchicalChunker().chunk(doc))
 
 ## More examples
 Check out the [examples](examples) — showcasing different variants of RAG incl. vector ingestion & retrieval:
-- [[LlamaIndex] Milvus dense-embedding RAG](examples/basic_pipeline.ipynb)
-- [[LlamaIndex] Milvus hybrid RAG, combining dense & sparse embeddings](examples/hybrid_pipeline.ipynb)
-- [[LlamaIndex] Milvus RAG, also fetching native document metadata for search results](examples/native_nodes.ipynb)
+- [[LlamaIndex] Milvus basic RAG (dense embeddings)](examples/basic_pipeline.ipynb)
+- [[LlamaIndex] Milvus hybrid RAG (dense & sparse embeddings combined e.g. via RRF) & reranker model usage](examples/hybrid_pipeline.ipynb)
+- [[LlamaIndex] Milvus RAG also fetching native document metadata for search results](examples/native_nodes.ipynb)
 - [[LlamaIndex] Local node transformations (e.g. embeddings)](examples/node_transformations.ipynb)
 - ...
 
