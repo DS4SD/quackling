@@ -30,7 +30,10 @@ class HierarchicalNodeParser(NodeParser):
     include_metadata: bool = Field(
         default=False, description="Whether or not to consider metadata when splitting."
     )
-    id_gen_seed: int | None = None
+    id_gen_seed: int | None = Field(
+        default=None,
+        description="ID generation seed; should typically be left to default `None`, which seeds on current timestamp; only set if you want the instance to generate a reproducible ID sequence e.g. for testing",  # noqa: 501
+    )
 
     def _parse_nodes(
         self,
