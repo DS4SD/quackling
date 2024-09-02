@@ -15,7 +15,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![License MIT](https://img.shields.io/github/license/DS4SD/quackling)](https://opensource.org/licenses/MIT)
 
-Quackling enables document-native generative AI applications, such as RAG, based on [Docling](https://github.com/DS4SD/docling-core).
+Quackling enables document-native generative AI applications, such as RAG, based on [Docling](https://github.com/DS4SD/docling).
 
 ## Features
 
