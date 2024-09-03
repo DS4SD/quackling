@@ -1,30 +1,30 @@
 fail_fast: true
 repos:
+  - repo: local
+    hooks:
 ################
 # Python files #
 ################
-  - repo: local
-    hooks:
-      - id: system
+      - id: black
         name: Black
         entry: poetry run black quackling tests
         pass_filenames: false
         language: system
         files: '\.py$'
-      - id: system
+      - id: isort
         name: isort
         entry: poetry run isort quackling tests
         pass_filenames: false
         language: system
         files: '\.py$'
-      - id: system
-        name: flake8
+      - id: flake8
+        name: Flake8
         entry: poetry run flake8 quackling tests
         pass_filenames: false
         language: system
         files: '\.py$'
-      - id: system
-        name: MyPy
+      - id: mypy
+        name: Mypy
         entry: poetry run mypy quackling tests
         pass_filenames: false
         language: system
@@ -38,19 +38,22 @@ repos:
 #####################
 # Jupyter notebooks #
 #####################
-      - id: system
-        name: nbqa black
+      - id: nbqa_black
+        name: nbQA Black
         entry: poetry run nbqa black examples
         pass_filenames: false
         language: system
         files: '\.ipynb$'
-      - id: system
-        name: nbqa isort
+      - id: nbqa_isort
+        name: nbQA isort
         entry: poetry run nbqa isort examples
         pass_filenames: false
         language: system
         files: '\.ipynb$'
-      - id: system
+########
+# Misc #
+########
+      - id: poetry
         name: Poetry check
         entry: poetry check --lock
         pass_filenames: false
