@@ -47,6 +47,7 @@ llama-index-llms-huggingface-api = { version = "^0.2.0", optional = true }
 llama-index-vector-stores-milvus = { version = "^0.2.1", optional = true }
 llama-index-postprocessor-flag-embedding-reranker  = {version = "^0.2.0", optional = true }
 flagembedding = { version = "^1.2.10", optional = true }
+peft = { version = "^0.12.0", optional = true }  # TODO: remove once we can update FlagEmbedding past 1.2.11 to include https://github.com/FlagOpen/FlagEmbedding/commit/1613625417e293bf98311cb8ae0819a0a3af5297
 jsonpath-ng = { version = "^1.6.1", optional = true }
 
 ##############
@@ -69,6 +70,7 @@ examples = [
     "llama-index-vector-stores-milvus",
     "llama-index-postprocessor-flag-embedding-reranker",
     "flagembedding",
+    "peft",  # TODO: remove once we can update FlagEmbedding past 1.2.11 to include https://github.com/FlagOpen/FlagEmbedding/commit/1613625417e293bf98311cb8ae0819a0a3af5297
     "jsonpath-ng",
 ]
 

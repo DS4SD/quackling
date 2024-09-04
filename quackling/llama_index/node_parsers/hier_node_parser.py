@@ -19,11 +19,15 @@ from llama_index.core.schema import (
 )
 from llama_index.core.utils import get_tqdm_iterable
 from pydantic import Field
+from typing_extensions import deprecated
 
-from quackling.core.chunkers.hierarchical_chunker import HierarchicalChunker
+from quackling.core.chunkers import HierarchicalChunker
 from quackling.llama_index.node_parsers.base import NodeMetadata
 
 
+@deprecated(
+    "Use `quackling.llama_index.node_parsers.HierarchicalJSONNodeParser` instead."
+)
 class HierarchicalNodeParser(NodeParser):
 
     # override default to False to avoid inheriting source doc's metadata
@@ -79,3 +83,7 @@ class HierarchicalNodeParser(NodeParser):
                 ).model_dump()
                 all_nodes.append(node)
         return all_nodes
+
+
+class HierarchicalJSONNodeParser(HierarchicalNodeParser):
+    pass
