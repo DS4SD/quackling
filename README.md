@@ -59,11 +59,11 @@ import os
 from llama_index.core import VectorStoreIndex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
-from quackling.llama_index.node_parsers.hier_node_parser import HierarchicalNodeParser
-from quackling.llama_index.readers.docling_reader import DoclingReader
+from quackling.llama_index.node_parsers import HierarchicalJSONNodeParser
+from quackling.llama_index.readers import DoclingPDFReader
 
-DOCS = ["https://arxiv.org/pdf/2311.18481"]
-QUERY = "What is DocQA?"
+DOCS = ["https://arxiv.org/pdf/2206.01062"]
+QUESTION = "How many pages were human annotated?"
 EMBED_MODEL = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 LLM = HuggingFaceInferenceAPI(
     token=os.getenv("HF_TOKEN"),
@@ -71,13 +71,14 @@ LLM = HuggingFaceInferenceAPI(
 )
 
 index = VectorStoreIndex.from_documents(
-    documents=DoclingReader(parse_type=DoclingReader.ParseType.JSON).load_data(DOCS),
+    documents=DoclingPDFReader(parse_type=DoclingPDFReader.ParseType.JSON).load_data(DOCS),
     embed_model=EMBED_MODEL,
-    transformations=[HierarchicalNodeParser()],
+    transformations=[HierarchicalJSONNodeParser()],
 )
 query_engine = index.as_query_engine(llm=LLM)
-response = query_engine.query(QUERY)
-# > DocQA is a question-answering conversational assistant [...]
+result = query_engine.query(QUESTION)
+print(result.response)
+# > 80K pages were human annotated
 ```
 
 ### Chunking
@@ -88,7 +89,7 @@ to Docling document's nodes:
 
 ```python
 from docling.document_converter import DocumentConverter
-from quackling.core.chunkers.hierarchical_chunker import HierarchicalChunker
+from quackling.core.chunkers import HierarchicalChunker
 
 doc = DocumentConverter().convert_single("https://arxiv.org/pdf/2408.09869").output
 chunks = list(HierarchicalChunker().chunk(doc))
@@ -120,13 +121,15 @@ Please read [Contributing to Quackling](./CONTRIBUTING.md) for details.
 If you use Quackling in your projects, please consider citing the following:
 
 ```bib
-@software{Docling,
-author = {Deep Search Team},
-month = {7},
-title = {{Docling}},
-url = {https://github.com/DS4SD/docling},
-version = {main},
-year = {2024}
+@techreport{Docling,
+  author = "Deep Search Team",
+  month = 8,
+  title = "Docling Technical Report",
+  url = "https://arxiv.org/abs/2408.09869",
+  eprint = "2408.09869",
+  doi = "10.48550/arXiv.2408.09869",
+  version = "1.0.0",
+  year = 2024
 }
 ```
 

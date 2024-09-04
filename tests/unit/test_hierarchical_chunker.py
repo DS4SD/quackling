@@ -7,7 +7,7 @@ import json
 
 from docling_core.types import Document as DLDocument
 
-from quackling.core.chunkers.hierarchical_chunker import HierarchicalChunker
+from quackling.core.chunkers import HierarchicalChunker
 
 
 def test_chunk_without_metadata():

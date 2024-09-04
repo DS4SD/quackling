@@ -6,8 +6,8 @@ from llama_index.core.vector_stores.types import VectorStoreQueryMode
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.vector_stores.milvus import MilvusVectorStore
 
-from quackling.llama_index.node_parsers.hier_node_parser import HierarchicalNodeParser
-from quackling.llama_index.readers.docling_reader import DoclingReader
+from quackling.llama_index.node_parsers import HierarchicalJSONNodeParser
+from quackling.llama_index.readers import DoclingPDFReader
 
 
 def test_retrieval():
@@ -19,8 +19,9 @@ def test_retrieval():
     MILVUS_DB_FNAME = "milvus_demo.db"
     MILVUS_COLL_NAME = "quackling_test_coll"
 
-    reader = DoclingReader(parse_type=DoclingReader.ParseType.JSON)
-    node_parser = HierarchicalNodeParser(id_gen_seed=ID_GEN_SEED)
+    reader = DoclingPDFReader(parse_type=DoclingPDFReader.ParseType.JSON)
+    node_parser = HierarchicalJSONNodeParser(id_gen_seed=ID_GEN_SEED)
+
     embed_model = HuggingFaceEmbedding(model_name=HF_EMBED_MODEL_ID)
 
     with TemporaryDirectory() as tmp_dir:
