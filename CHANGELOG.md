@@ -1,3 +1,13 @@
+## [v0.2.0](https://github.com/DS4SD/quackling/releases/tag/v0.2.0) - 2024-09-04
+
+### Feature
+
+* Refactor & simplify import of core classes & extensions ([#11](https://github.com/DS4SD/quackling/issues/11)) ([`f308099`](https://github.com/DS4SD/quackling/commit/f3080995b9cf5a771f3e0aa88aa17750dcfb4313))
+
+### Documentation
+
+* Update docling link on README ([#7](https://github.com/DS4SD/quackling/issues/7)) ([`24fe02d`](https://github.com/DS4SD/quackling/commit/24fe02d978c82e37e1d98493cb9ee9bccb75858a))
+
 ## [v0.1.1](https://github.com/DS4SD/quackling/releases/tag/v0.1.1) - 2024-08-27
 
 ### Fix
