@@ -1,3 +1,9 @@
+## [v0.3.0](https://github.com/DS4SD/quackling/releases/tag/v0.3.0) - 2024-09-05
+
+### Feature
+
+* Create a docling reader for docs as JSON. ([#10](https://github.com/DS4SD/quackling/issues/10)) ([`0ce1b4c`](https://github.com/DS4SD/quackling/commit/0ce1b4c96e619b9e7fe836d64e3e73ac70a53f4e))
+
 ## [v0.2.0](https://github.com/DS4SD/quackling/releases/tag/v0.2.0) - 2024-09-04
 
 ### Feature
