@@ -36,6 +36,7 @@ python = "^3.10"
 docling-core = "^1.1.2"
 
 llama-index-core = "^0.11.1"
+langchain-core = "^0.2.38"
 docling = "^1.8.2"
 
 #########
@@ -49,6 +50,9 @@ llama-index-postprocessor-flag-embedding-reranker  = {version = "^0.2.0", option
 flagembedding = { version = "^1.2.10", optional = true }
 peft = { version = "^0.12.0", optional = true }  # TODO: remove once we can update FlagEmbedding past 1.2.11 to include https://github.com/FlagOpen/FlagEmbedding/commit/1613625417e293bf98311cb8ae0819a0a3af5297
 jsonpath-ng = { version = "^1.6.1", optional = true }
+langchain-huggingface = { version = "^0.0.3", optional = true}
+langchain-milvus = { version = "^0.1.4", optional = true }
+langchain-text-splitters = { version = "^0.2.4", optional = true }
 
 ##############
 # constraints:
@@ -65,6 +69,7 @@ torchvision = [
 [tool.poetry.extras]
 examples = [
     "python-dotenv",
+    # LlamaIndex examples:
     "llama-index-embeddings-huggingface",
     "llama-index-llms-huggingface-api",
     "llama-index-vector-stores-milvus",
@@ -72,6 +77,10 @@ examples = [
     "flagembedding",
     "peft",  # TODO: remove once we can update FlagEmbedding past 1.2.11 to include https://github.com/FlagOpen/FlagEmbedding/commit/1613625417e293bf98311cb8ae0819a0a3af5297
     "jsonpath-ng",
+    # LangChain examples:
+    "langchain-huggingface",
+    "langchain-milvus",
+    "langchain-text-splitters",
 ]
 
 [tool.poetry.group.dev.dependencies]
