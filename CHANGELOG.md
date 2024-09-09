@@ -1,3 +1,9 @@
+## [v0.4.0](https://github.com/DS4SD/quackling/releases/tag/v0.4.0) - 2024-09-09
+
+### Feature
+
+* Add LangChain extensions ([#13](https://github.com/DS4SD/quackling/issues/13)) ([`39811af`](https://github.com/DS4SD/quackling/commit/39811afa41da761eff1ceb3d257a2ed709063337))
+
 ## [v0.3.0](https://github.com/DS4SD/quackling/releases/tag/v0.3.0) - 2024-09-05
 
 ### Feature
