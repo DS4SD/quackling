@@ -15,13 +15,13 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![License MIT](https://img.shields.io/github/license/DS4SD/quackling)](https://opensource.org/licenses/MIT)
 
-Quackling enables document-native generative AI applications, such as RAG, based on [Docling](https://github.com/DS4SD/docling).
+Easily build document-native generative AI applications, such as RAG, leveraging [Docling](https://github.com/DS4SD/docling)'s efficient PDF extraction and rich data model — while still using your favorite framework, [🦙 LlamaIndex](https://docs.llamaindex.ai/en/stable/) or [🦜🔗 LangChain](https://python.langchain.com/).
 
 ## Features
 
 - 🧠 Enables rich gen AI applications by providing capabilities on native document level — not just plain text / Markdown!
 - ⚡️ Leverages Docling's conversion quality and speed.
-- ⚙️ Integrates with standard LLM application frameworks, such as LlamaIndex, for building powerful applications like RAG.
+- ⚙️ Plug-and-play integration with LlamaIndex and LangChain for building powerful applications like RAG.
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/DS4SD/quackling/main/resources/doc_native_rag.png">
@@ -40,12 +40,11 @@ pip install quackling
 
 ## Usage
 
-Quackling offers core capabilities (`quackling.core`), as well as framework integration components
-e.g. for LlamaIndex (`quackling.llama_index`). Below you find examples of both.
+Quackling offers core capabilities (`quackling.core`), as well as framework integration components (`quackling.llama_index` and `quackling.langchain`). Below you find examples of both.
 
 ### Basic RAG
 
-Below you find a basic RAG pipeline using LlamaIndex.
+Here is a basic RAG pipeline using LlamaIndex:
 
 > [!NOTE]
 > To use as is, first `pip install llama-index-embeddings-huggingface llama-index-llms-huggingface-api`
@@ -67,7 +66,7 @@ QUESTION = "How many pages were human annotated?"
 EMBED_MODEL = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 LLM = HuggingFaceInferenceAPI(
     token=os.getenv("HF_TOKEN"),
-    model_name="mistralai/Mixtral-8x7B-Instruct-v0.1",
+    model_name="mistralai/Mistral-7B-Instruct-v0.3",
 )
 
 index = VectorStoreIndex.from_documents(
@@ -105,12 +104,17 @@ chunks = list(HierarchicalChunker().chunk(doc))
 ```
 
 ## More examples
-Check out the [examples](examples) — showcasing different variants of RAG incl. vector ingestion & retrieval:
-- [[LlamaIndex] Milvus basic RAG (dense embeddings)](examples/basic_pipeline.ipynb)
-- [[LlamaIndex] Milvus hybrid RAG (dense & sparse embeddings combined e.g. via RRF) & reranker model usage](examples/hybrid_pipeline.ipynb)
-- [[LlamaIndex] Milvus RAG also fetching native document metadata for search results](examples/native_nodes.ipynb)
-- [[LlamaIndex] Local node transformations (e.g. embeddings)](examples/node_transformations.ipynb)
+
+### LlamaIndex
+
+- [Milvus basic RAG (dense embeddings)](examples/llama_index/basic_pipeline.ipynb)
+- [Milvus hybrid RAG (dense & sparse embeddings combined e.g. via RRF) & reranker model usage](examples/llama_index/hybrid_pipeline.ipynb)
+- [Milvus RAG also fetching native document metadata for search results](examples/llama_index/native_nodes.ipynb)
+- [Local node transformations (e.g. embeddings)](examples/llama_index/node_transformations.ipynb)
 - ...
+
+### LangChain
+- [Milvus basic RAG (dense embeddings)](examples/langchain/basic_pipeline.ipynb)
 
 ## Contributing
 
