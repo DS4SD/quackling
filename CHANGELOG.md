@@ -1,3 +1,9 @@
+## [v0.4.1](https://github.com/DS4SD/quackling/releases/tag/v0.4.1) - 2024-09-11
+
+### Fix
+
+* Trigger final release incl. transition notice ([#14](https://github.com/DS4SD/quackling/issues/14)) ([`b06d826`](https://github.com/DS4SD/quackling/commit/b06d826adfc0f50350732eff27a5afdb6c9d40f9))
+
 ## [v0.4.0](https://github.com/DS4SD/quackling/releases/tag/v0.4.0) - 2024-09-09
 
 ### Feature
