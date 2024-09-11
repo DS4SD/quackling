@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> # 👉 Now part of [Docling](https://github.com/DS4SD/docling)!
+
 <p align="center">
   <a href="https://github.com/DS4SD/quackling">
     <img loading="lazy" alt="Quackling" src="https://raw.githubusercontent.com/DS4SD/quackling/main/resources/logo.jpeg" width="150" />
